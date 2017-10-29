@@ -23,7 +23,7 @@ int main() {
 book *create_node(char title[], char author[], long isbn) {
     //creates a new node with the title, author and isbn passed to it
     book *new_node = malloc(sizeof(book));
-    if (!new_node){      //very unlikely, but just in case, you never know
+    if (!new_node) {      //very unlikely, but just in case, you never know
         printf("ASSIGNING MEMORY FAILED");
         exit(2);         //kill the program, not able to deal with this
     }
@@ -67,13 +67,13 @@ book *insert_node(book *head, book *current_node, book *node_to_insert) {
 }
 
 
-void print_selected_node(book * head, char title[]){
+void print_selected_node(book *head, char title[]) {
     //finds a node based on it's title
-    if (!(strcmp(head -> book_title, title))){
+    if (!(strcmp(head->book_title, title))) {
         printf("Title of the book: %s\nName of the author: %s\nISBN: %li\n",
                head->book_title, head->book_author, head->book_isbn);
         return;
-    } else if (head->pointer){
+    } else if (head->pointer) {
         print_selected_node(head->pointer, title);
     } else {
         printf("COULD NOT FIND: %s\n", title);
@@ -86,7 +86,7 @@ void print_nodes(book *current_node) {
     if (current_node->pointer) {
         print_nodes(current_node->pointer);
     }
-    if (current_node){
+    if (current_node) {
         printf("Title of the book: %s\nName of the author: %s\nISBN: %li\n", current_node->book_title,
                current_node->book_author, current_node->book_isbn);
     }
